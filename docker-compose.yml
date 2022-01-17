@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  bsc-nft-dev:
+    image: reg.txnservice.com:5000/bsc-nft-dev:latest # in dev we can override 
+    container_name: bsc-nft-dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        - ENV=development
+        - API_PORT=7720
+        - REDIS_HOST=vm-nodejs-dev01
+        - REDIS_PORT=6379
+        - CHAIN=bsc
+        - JOBS_TIME_FREQ_SEC=20 # 20 s
+        - PROCESSED_TRANSFERS_SETNAME=bsc:LATEST:TRADES
+        - BLOCK_NUMBER_REDIS_KEYNAME=bsc:LATEST:BLOCK:NUMBER #chain:LABEL0:LABEL1:LABEL3
+        - MORALIS_APP_ID=y0cQ4ZR0m6K0S6ePmBbnz77rKJPUhHKQNbDgaei9
+        - MORALIS_SERVER=https://huh1yu0olctg.usemoralis.com:2053/server
+        - NODE_URL=wss://speedy-nodes-nyc.moralis.io/b936340defdefef4b5c5cb49/bsc/mainnet/ws
+  avalanche-nft-dev:
+    image: reg.txnservice.com:5000/bsc-nft-dev:latest # in dev we can override 
+    container_name: avalanche-nft-dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        - ENV=development
+        - API_PORT=7720
+        - REDIS_HOST=vm-nodejs-dev01
+        - REDIS_PORT=6379
+        - CHAIN=avalanche
+        - JOBS_TIME_FREQ_SEC=20 # 20 s
+        - PROCESSED_TRANSFERS_SETNAME=avalanche:LATEST:TRADES
+        - BLOCK_NUMBER_REDIS_KEYNAME=avalanche:LATEST:BLOCK:NUMBER  #chain:LABEL0:LABEL1:LABEL3
+        - MORALIS_APP_ID=y0cQ4ZR0m6K0S6ePmBbnz77rKJPUhHKQNbDgaei9
+        - MORALIS_SERVER=https://huh1yu0olctg.usemoralis.com:2053/server
+        - NODE_URL=wss://speedy-nodes-nyc.moralis.io/b936340defdefef4b5c5cb49/avalanche/mainnet/ws

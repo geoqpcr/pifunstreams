@@ -1,0 +1,46 @@
+FROM mhart/alpine-node:10.16.3 As builder
+
+WORKDIR /src
+
+COPY . .
+RUN npm install
+
+# Stage 2 -> image builder
+FROM mhart/alpine-node:10.16.3
+
+# timezone config
+RUN apk add --no-cache tzdata
+ENV TZ America/Los_Angeles
+
+# args definitions
+ARG ENV
+ARG API_PORT
+ARG REDIS_HOST
+ARG REDIS_PORT
+ARG CHAIN=avalanche
+ARG JOBS_TIME_FREQ_SEC
+ARG BLOCK_NUMBER_REDIS_KEYNAME
+ARG MORALIS_APP_ID
+ARG MORALIS_SERVER
+ARG NODE_URL
+
+#env definitions
+ENV ENV ${ENV}
+ENV API_PORT ${API_PORT}
+ENV REDIS_HOST ${REDIS_HOST}
+ENV REDIS_PORT ${REDIS_PORT}
+ENV CHAIN ${CHAIN}
+ENV JOBS_TIME_FREQ_SEC ${JOBS_TIME_FREQ_SEC}
+ENV BLOCK_NUMBER_REDIS_KEYNAME ${BLOCK_NUMBER_REDIS_KEYNAME}
+ENV MORALIS_APP_ID ${MORALIS_APP_ID}
+ENV MORALIS_SERVER ${MORALIS_SERVER}
+ENV NODE_URL ${NODE_URL}
+# move to new dir
+WORKDIR /var/www
+COPY --from=builder /src/ .
+
+# Expose ports
+EXPOSE ${API_PORT}
+
+# app entrypoint
+CMD [ "npm", "run", "buildDev"]

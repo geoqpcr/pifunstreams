@@ -1,0 +1,38 @@
+{
+  "name": "pifun-streams",
+  "version": "0.0.1",
+  "description": "web3 interactions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildDev": "nodemon -r --legacy-watch ./src/server/index.js"
+  },
+  "keywords": [
+    "blockchain",
+    "nft",
+    "moralis"
+  ],
+  "author": "k:spiders",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^18.4.0",
+    "@hapi/inert": "^5.2.2",
+    "@hapi/joi": "^16.1.7",
+    "@hapi/vision": "^5.5.4",
+    "ethers": "^5.5.3",
+    "got": "^11.8.2",
+    "hapi-auth-jwt2": "^8.8.0",
+    "hapi-swagger": "^11.0.1",
+    "ioredis": "^4.14.1",
+    "moralis": "0.0.183",
+    "mssql": "^6.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-moralis": "^0.3.11",
+    "socket.io": "^4.4.1",
+    "web3": "^1.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.0"
+  }
+}
