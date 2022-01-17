@@ -14,9 +14,9 @@
                 "CHAIN": "bsc",
                 "JOBS_TIME_FREQ_SEC": "20", // 20 s
                 "BLOCK_NUMBER_REDIS_KEYNAME": "bsc:LATEST:BLOCK:NUMBER",// chain:LABEL0:LABEL1:LABEL3
-                "MORALIS_APP_ID": "y0cQ4ZR0m6K0S6ePmBbnz77rKJPUhHKQNbDgaei9",
-                "MORALIS_SERVER": "https://huh1yu0olctg.usemoralis.com:2053/server",
-                "NODE_URL": "wss://speedy-nodes-nyc.moralis.io/b936340defdefef4b5c5cb49/bsc/mainnet/ws",
+                "MORALIS_APP_ID": "",
+                "MORALIS_SERVER": "",
+                "NODE_URL": "",
             },
             "console": "integratedTerminal",
             "runtimeExecutable": "${env:HOME}/.nvm/versions/node/v12.13.1/bin/node"
