@@ -14,6 +14,7 @@
                 "CHAIN": "bsc",
                 "JOBS_TIME_FREQ_SEC": "20", // 20 s
                 "BLOCK_NUMBER_REDIS_KEYNAME": "bsc:LATEST:BLOCK:NUMBER",// chain:LABEL0:LABEL1:LABEL3
+                "PROCESSED_TRANSFERS_SETNAME":"bsc:LATEST:TRADES",
                 "MORALIS_APP_ID": "",
                 "MORALIS_SERVER": "",
                 "NODE_URL": "",
@@ -34,6 +35,7 @@
                 "CHAIN": "avalanche",
                 "JOBS_TIME_FREQ_SEC": "20",
                 "BLOCK_NUMBER_REDIS_KEYNAME": "avalanche:LATEST:BLOCK:NUMBER",// chain:LABEL0:LABEL1:LABEL3
+                "PROCESSED_TRANSFERS_SETNAME":"bsc:LATEST:TRADES",
                 "MORALIS_APP_ID": "",
                 "MORALIS_SERVER": "",
                 "NODE_URL": "",
@@ -54,6 +56,7 @@
                 "CHAIN": "polygon",
                 "JOBS_TIME_FREQ_SEC": "20",
                 "BLOCK_NUMBER_REDIS_KEYNAME": "polygon:LATEST:BLOCK:NUMBER",// chain:LABEL0:LABEL1:LABEL3
+                "PROCESSED_TRANSFERS_SETNAME":"polygon:LATEST:TRADES",
                 "MORALIS_APP_ID": "",
                 "MORALIS_SERVER": "",
                 "NODE_URL": "",

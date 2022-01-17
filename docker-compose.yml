@@ -10,7 +10,7 @@ services:
       args:
         - ENV=development
         - API_PORT=7720
-        - REDIS_HOST=vm-nodejs-dev01
+        - REDIS_HOST=localhost
         - REDIS_PORT=6379
         - CHAIN=bsc
         - JOBS_TIME_FREQ_SEC=20 # 20 s
@@ -28,7 +28,7 @@ services:
       args:
         - ENV=development
         - API_PORT=7720
-        - REDIS_HOST=vm-nodejs-dev01
+        - REDIS_HOST=localhost
         - REDIS_PORT=6379
         - CHAIN=avalanche
         - JOBS_TIME_FREQ_SEC=20 # 20 s
