@@ -19,6 +19,8 @@
     "@hapi/inert": "^5.2.2",
     "@hapi/joi": "^16.1.7",
     "@hapi/vision": "^5.5.4",
+    "abi-decoder": "^2.4.0",
+    "ethereum-input-data-decoder": "^0.3.5",
     "ethers": "^5.5.3",
     "got": "^11.8.2",
     "hapi-auth-jwt2": "^8.8.0",

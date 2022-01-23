@@ -26,6 +26,7 @@ const init = async () => {
     // jobs init
     await jobs.nft.initJobs(server);
 
+    //await jobs.nft.getContractEvents(server);
     // log info
     const serverUri = server.info.uri;
     const message = `Server running on ${serverUri}, 

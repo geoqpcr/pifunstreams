@@ -6,8 +6,10 @@ const {
     JOBS_TIME_FREQ_SEC,
     BLOCK_NUMBER_REDIS_KEYNAME
 } = process.env;
+
 const utils = require('./utils');
 const models = require('./models');
+const newPairABI = require('./abis/new-pair.json');
 
 const initSockets = (server) => {
     return new Promise( async (resolve, reject) => {
@@ -144,16 +146,39 @@ const getLatestParsedNFTTrades = (server) => {
             LNFTTRADES_TOPIC.emit('LASTTRADES', result);
         }, 1000 * Number(JOBS_TIME_FREQ_SEC));
         
-
     } catch (error) {
         
         console.log('error', error)
     }
 }
 
+const getContractEvents = async (server) => {
+    try {
+
+        const options = {
+            chain: CHAIN,
+            limit: 5,
+            address: "0xca143ce32fe78f1f7019d7d551a6402fc5350c73",
+            topic: "0x0d3648bd0f6ba80134a33ba9275ac585d9d315f0ad8355cddefde31afa28d0e9",
+            abi: newPairABI
+        };
+
+        const { client } = server.plugins['moralis-client'];
+        const events = await client.Web3API.native.getContractEvents(options);
+
+        console.log('getContractEvents:events', events);
+
+        return events;
+
+    } catch (error) {
+
+    }
+}
+
 module.exports = {
     initJobs,
     initSockets,
+    getContractEvents,
     getLatestNFTTrades,
     getLatestParsedNFTTrades
 }
